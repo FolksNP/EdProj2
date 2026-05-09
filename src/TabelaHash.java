@@ -2,24 +2,24 @@ public class TabelaHash{
 
     // para testes, vamos usar uma estrutura de dados mais primitiva (array simples)
 
-    private Integer capacidade = 10;
+    private Integer capacidade = 1;
     private Integer elementosInseridos = 0;
     private No [] vetor = new No[capacidade];
 
     private class No{
-        Integer chave;
+        String chave;
         String valor;
 
-        public No(Integer chave, String valor) {
+        public No(String chave, String valor) {
             this.chave = chave;
             this.valor = valor;
         }
 
-        public Integer getChave() {
+        public String getChave() {
             return chave;
         }
 
-        public void setChave(Integer chave) {
+        public void setChave(String chave) {
             this.chave = chave;
         }
 
@@ -32,8 +32,8 @@ public class TabelaHash{
         }
     }
 
-    public TabelaHash(Integer capacidade){
-        this.capacidade = capacidade;
+    public TabelaHash(){
+
     }
 
     // mapear a posicao da chave.
@@ -66,7 +66,7 @@ public class TabelaHash{
 
         Integer hash = funcaoHash(chave);
         Integer indice = compressao(hash);
-        No novo = new No(hash, valor);
+        No novo = new No(chave, valor);
 
         if (vetor[indice] == null){
             vetor[indice] = novo;
@@ -90,12 +90,42 @@ public class TabelaHash{
     public void remove(String chave){
         Integer hash = funcaoHash(chave);
         Integer indice = compressao(hash);
+        elementosInseridos--;
         vetor[indice] = null;
     }
 
-    // TODO: Fazer a funcao de expensao - resize()
-    public void resize(){
-        this.capacidade = capacidade * 2; // dobra o tamanho
+    public void resize() {
+
+        No[] vetorAntigo = this.vetor;
+        Integer capacidadeAntiga = this.capacidade;
+
+        this.capacidade = capacidadeAntiga * 2;
+
+        this.vetor = new No[this.capacidade];
+        this.elementosInseridos = 0;
+
+        for (int i = 0; i < capacidadeAntiga; i++) {
+            if (vetorAntigo[i] != null) {
+                No atual = vetorAntigo[i];
+                reinstalarAposResize(atual);
+            }
+        }
+    }
+
+    private void reinstalarAposResize(No no) {
+        Integer novoIndice = compressao(funcaoHash(no.getChave()));
+
+        if (vetor[novoIndice] == null) {
+            vetor[novoIndice] = no;
+        } else {
+            // Busca o próximo espaço livre de forma circular
+            int tentativa = (novoIndice + 1) % capacidade;
+            while (vetor[tentativa] != null) {
+                tentativa = (tentativa + 1) % capacidade;
+            }
+            vetor[tentativa] = no;
+        }
+        elementosInseridos++;
     }
 
 }

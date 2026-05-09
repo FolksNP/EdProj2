@@ -1,3 +1,12 @@
+/*
+    Grupo:
+    Felipe Kanamaru de Oliveira
+    Felipe Silva Siqueira
+    Gustavo Henrique de Sousa Santos
+    João Pedro Honorato
+    Theo Resende Simoes Esposito
+ */
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.util.ArrayList;
@@ -43,27 +52,6 @@ public class Main{
         Double limiar = Double.valueOf(args[1]);
         String modo = args[2];
         // outros argumentos podem ser capturados posteriormente, conforme a necessidade.
-
-        ArrayList<File> arquivos = buscarArquivosNoDiretorio(diretorio);
-
-        if (arquivos == null){
-            System.out.println("Lista nula");
-            return;
-        }
-
-        System.out.println("Quantidade: " + arquivos.size());
-
-        for (int i = 0; i < arquivos.size(); i++){
-            System.out.println(arquivos.get(i));
-        }
-
-        // atencao: capacidade nao funciona, esta sendo definida no codigo, para testar
-        //TabelaHash tabelaHash = new TabelaHash(10);
-
-
-        //testes
-//        tabelaHash.inserir("computacao", "computacao");
-//        System.out.println(tabelaHash.get("computacao"));
 
     }
 
