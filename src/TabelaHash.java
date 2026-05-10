@@ -38,8 +38,8 @@ public class TabelaHash{
 
     // mapear a posicao da chave.
     /* Funcionamento:
-        Pegamos cada caractere, e pegamos o valor inteiro (ascii)
-        Fazemos a soma de todos os valores e fazemos mod capacidade.
+        caracteres[i] * (int) Math.pow(31, i); -> Algoritmo mais elegante, que evita colisoes por similaridade
+        de palavras (casa, saca). Tomar cuidado com o casting (int)
      */
 
     private Integer funcaoHash(String chave){
@@ -50,7 +50,7 @@ public class TabelaHash{
         }
         Integer soma = 0;
         for (int i = 0; i < caracteres.length; i++){
-            soma+=caracteres[i];
+            soma += caracteres[i] * (int) Math.pow(31, i);
         }
 
         return soma;
@@ -81,6 +81,7 @@ public class TabelaHash{
 
     // TODO: Fazer o tratamento de colisoes, podemos usar AVL.
 
+    // TODO: Aprimorar a implementacao dos metodos get e remove
     public String get(String chave){
         Integer hash = funcaoHash(chave);
         Integer indice = compressao(hash);

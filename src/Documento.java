@@ -1,33 +1,21 @@
 import javax.print.Doc;
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class Documento {
 
-    private File arquivo;
-    private File arquivoTratado = null;
-    private TabelaHash hashT = new TabelaHash();
+    private String nomeArquivo;
+    private Path caminho;
+    private TabelaHash frequenciaTermos;
 
-    public Documento(File arquivo){
-        this.arquivo = arquivo;
+    public Documento(String nomeDocumento){
+        nomeArquivo = nomeDocumento;
+        frequenciaTermos = new TabelaHash();
     }
 
-    public void removerStopWords(){
-
-        ArrayList<String> caracteres = new ArrayList<>();
-
-        String [] stopWords = {
-                "a", "o", "e",
-                "de", "em", "para", "que"
-        };
 
 
-
-    }
-
-    public void processarArquivo(){
-
-    }
 
 
 }
