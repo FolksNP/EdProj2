@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArvoreAVL {
@@ -10,17 +11,24 @@ public class ArvoreAVL {
         // TODO
     }
 
-    private static class ParDocumento {
-        Documento docA;
-        Documento docB;
-        double grauSimilaridade;
+    public List<ParDocumento> listarParesEmOrdem() {
+        ArrayList<ParDocumento> pares = new ArrayList<>();
+        listarParesEmOrdem(raiz, pares);
 
-        public ParDocumento(Documento docA, Documento docB, double grauSimilaridade) {
-            this.docA = docA;
-            this.docB = docB;
-            this.grauSimilaridade = grauSimilaridade;
-        }
+        return pares;
     }
+
+    private void listarParesEmOrdem(No raiz, List<ParDocumento> lista) {
+        if(raiz == null) return;
+        listarParesEmOrdem(raiz.esquerda, lista);
+
+        for(ParDocumento par : raiz.pares) { // Também poderia adicionar a lista inteira diretamente, mas acho que seria feio
+            lista.addLast(par);
+        }
+
+        listarParesEmOrdem(raiz.direita, lista);
+    }
+
 
     private static class No {
         List<ParDocumento> pares; // Chave do nó
