@@ -61,10 +61,10 @@ public class ArvoreAVL {
 
         No esquerda;
         No direita;
-        int fatorBalanceamento;
+        int altura;
 
-        public No(ParDocumento par, int fatorBalanceamento) {
-            this.fatorBalanceamento = fatorBalanceamento;
+        public No(ParDocumento par, int altura) {
+            this.altura = altura;
             this.grauSimilaridade = par.getGrauSimilaridade();
             pares = new ArrayList<>();
             pares.addLast(par);
@@ -78,7 +78,7 @@ public class ArvoreAVL {
             pares.addLast(new ParDocumento(docA, docB, grauSimilaridade));
         }
 
-        public void atualizarBalanceamento() {
+        public void atualizarAltura() {
             // * TODO *
         }
     }
