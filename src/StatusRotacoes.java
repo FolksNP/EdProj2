@@ -28,11 +28,11 @@ public class StatusRotacoes {
     }
 
     public int total() {
-        return simplesDireita + simplesDireita + duplaEsquerda + duplaDireita;
+        return simplesEsquerda + simplesDireita + duplaEsquerda + duplaDireita; // bug corrigido: era simplesDireita duas vezes
     }
 
     public int simples() {
-        return simplesDireita + simplesDireita;
+        return simplesEsquerda + simplesDireita; // bug corrigido: era simplesDireita duas vezes
     }
 
     public int duplas() {
