@@ -1,0 +1,2 @@
+Dados estruturados são essenciais para a ciência da computação.
+O estudo de algoritmos é fundamental para desenvolvedores.

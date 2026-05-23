@@ -1,0 +1,2 @@
+Estrutura de dados é essencial em ciência da computação.
+Algoritmos eficientes dependem de boas estruturas de dados.
