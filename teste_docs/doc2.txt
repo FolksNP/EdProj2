@@ -1,0 +1,3 @@
+A inteligência artificial está mudando o mundo de maneira rápida e profunda.
+Algoritmos de machine learning permitem que máquinas aprendam com grandes volumes de dados.
+Redes neurais profundas são estruturas computacionais baseadas no funcionamento do cérebro.

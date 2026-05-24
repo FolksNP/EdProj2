@@ -1,0 +1,3 @@
+A inteligência artificial está transformando o mundo moderno de forma acelerada.
+Algoritmos de aprendizado de máquina permitem que computadores aprendam com dados.
+Redes neurais são modelos computacionais inspirados no cérebro humano.

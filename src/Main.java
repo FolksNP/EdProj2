@@ -1,10 +1,10 @@
 /*
     Grupo:
-    Felipe Kanamaru de Oliveira
-    Felipe Silva Siqueira
-    Gustavo Henrique de Sousa Santos
-    João Pedro Honorato
-    Theo Resende Simoes Esposito
+    Felipe Kanamaru de Oliveira - 10435742
+    Felipe Silva Siqueira - 10445036
+    Gustavo Henrique de Sousa Santos - 10731355
+    João Pedro Honorato - 10726497
+    Theo Resende Simoes Esposito - 10721356
  */
 
 import java.io.File;
